@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:colorControlHighlight">
+
+    <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <solid android:color="@color/equals_button" />
         </shape>
     </item>
-</selector>
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/equals_button_ripple" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+
+</ripple>

@@ -10,4 +10,6 @@
 
     <color name="app_background">#B2DFDB</color>
     <color name="equals_button">#00695C</color>
+    <color name="button_ripple">#00796B</color>
+    <color name="equals_button_ripple">#004D40</color>
 </resources>

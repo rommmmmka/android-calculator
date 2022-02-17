@@ -235,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
         Expression exp = new Expression(String.valueOf(expressionB));
         StringBuilder result = new StringBuilder(String.valueOf(exp.calculate()));
         result.insert(0, "=");
+        if (result.length() >= 2 && result.charAt(result.length() - 2) == '.' && result.charAt(result.length() - 1) == '0')
+            result.delete(result.length() - 2, result.length());
         textView.setText(result);
     }
 

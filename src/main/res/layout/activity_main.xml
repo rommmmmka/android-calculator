@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:paddingRight="10dp"
-        android:text="0"
+        android:text="@string/textViewPlaceholder"
         android:gravity="end|center_vertical"
         android:textSize="20sp"
         app:layout_constraintVertical_weight="0.3"

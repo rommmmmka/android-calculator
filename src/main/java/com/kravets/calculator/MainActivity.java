@@ -238,6 +238,19 @@ public class MainActivity extends AppCompatActivity {
             s = new StringBuilder(s).append('(').toString();
         if (s.equals(getResources().getString(R.string.squareRootText)))
             s = "sqrt(";
+        if (s.equals("0")) {
+            boolean isZeroAllowed = false;
+            if (cursorPos == 0 || expression.charAt(cursorPos - 1) != '0')
+                isZeroAllowed = true;
+            for (int i = cursorPos - 1; i > 0 && !isZeroAllowed; i--) {
+                if (expression.charAt(i) == '0')
+                    continue;
+                if (expression.charAt(i) == '.' || Character.isDigit(expression.charAt(i)))
+                    isZeroAllowed = true;
+            }
+            if (!isZeroAllowed)
+                return;
+        }
         expression.insert(cursorPos, s);
         editText.setText(expression);
         editText.setSelection(cursorPos + s.length());

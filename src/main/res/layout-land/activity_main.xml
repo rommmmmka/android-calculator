@@ -11,31 +11,31 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:gravity="end|center_vertical"
         android:paddingRight="10dp"
         android:text="@string/textViewPlaceholder"
-        android:gravity="end|center_vertical"
         android:textSize="20sp"
-        app:layout_constraintVertical_weight="0.3"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintBottom_toTopOf="@id/constraintLayout" />
+        app:layout_constraintVertical_weight="0.3" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="10dp"
-        android:paddingRight="10dp"
         android:ems="10"
-        android:inputType="text"
-        android:text=""
         android:gravity="end|bottom"
+        android:inputType="text"
+        android:paddingRight="10dp"
+        android:text=""
         android:textSize="28sp"
-        app:layout_constraintVertical_weight="0.6"
+        app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textView"/>
+        app:layout_constraintVertical_weight="0.6" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -44,13 +44,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_weight="2.5"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_weight="2.5">
 
         <Button
             android:id="@+id/buttonEquals"
-            android:text="@string/equalsText"
             style="@style/EqualsButtonStyle"
+            android:text="@string/equalsText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/buttonBackspace"
             app:layout_constraintRight_toLeftOf="@id/buttonPi"
@@ -58,8 +58,8 @@
 
         <Button
             android:id="@+id/buttonBackspace"
-            android:text="@string/backspace"
             style="@style/ButtonStyle"
+            android:text="@string/backspace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/buttonClear"
             app:layout_constraintRight_toLeftOf="@id/buttonEquals"
@@ -67,8 +67,8 @@
 
         <Button
             android:id="@+id/buttonAdd"
-            android:text="@string/addText"
             style="@style/ButtonStyle"
+            android:text="@string/addText"
             app:layout_constraintBottom_toTopOf="@id/buttonEquals"
             app:layout_constraintLeft_toRightOf="@+id/buttonPercent"
             app:layout_constraintRight_toLeftOf="@id/buttonE"
@@ -76,8 +76,8 @@
 
         <Button
             android:id="@+id/buttonPercent"
-            android:text="@string/percentText"
             style="@style/ButtonStyle"
+            android:text="@string/percentText"
             app:layout_constraintBottom_toTopOf="@id/buttonEquals"
             app:layout_constraintLeft_toRightOf="@id/button0"
             app:layout_constraintRight_toLeftOf="@id/buttonAdd"
@@ -85,8 +85,8 @@
 
         <Button
             android:id="@+id/button0"
-            android:text="@string/zeroText"
             style="@style/ButtonStyle"
+            android:text="@string/zeroText"
             app:layout_constraintBottom_toTopOf="@id/buttonBackspace"
             app:layout_constraintLeft_toRightOf="@+id/buttonDecimal"
             app:layout_constraintRight_toLeftOf="@id/buttonPercent"
@@ -94,8 +94,8 @@
 
         <Button
             android:id="@+id/buttonSubtract"
-            android:text="@string/subtractText"
             style="@style/ButtonStyle"
+            android:text="@string/subtractText"
             app:layout_constraintBottom_toTopOf="@id/buttonAdd"
             app:layout_constraintLeft_toRightOf="@+id/button9"
             app:layout_constraintRight_toLeftOf="@id/buttonPower"
@@ -103,8 +103,8 @@
 
         <Button
             android:id="@+id/button9"
-            android:text="@string/nineText"
             style="@style/ButtonStyle"
+            android:text="@string/nineText"
             app:layout_constraintBottom_toTopOf="@id/buttonPercent"
             app:layout_constraintLeft_toRightOf="@+id/button8"
             app:layout_constraintRight_toLeftOf="@id/buttonSubtract"
@@ -112,8 +112,8 @@
 
         <Button
             android:id="@+id/button8"
-            android:text="@string/eightText"
             style="@style/ButtonStyle"
+            android:text="@string/eightText"
             app:layout_constraintBottom_toTopOf="@id/button0"
             app:layout_constraintLeft_toRightOf="@+id/button7"
             app:layout_constraintRight_toLeftOf="@id/button9"
@@ -121,8 +121,8 @@
 
         <Button
             android:id="@+id/buttonMultiply"
-            android:text="@string/multiplyText"
             style="@style/ButtonStyle"
+            android:text="@string/multiplyText"
             app:layout_constraintBottom_toTopOf="@id/buttonSubtract"
             app:layout_constraintLeft_toRightOf="@+id/button6"
             app:layout_constraintRight_toLeftOf="@id/buttonParenthesesClose"
@@ -130,8 +130,8 @@
 
         <Button
             android:id="@+id/button6"
-            android:text="@string/sixText"
             style="@style/ButtonStyle"
+            android:text="@string/sixText"
             app:layout_constraintBottom_toTopOf="@id/button9"
             app:layout_constraintLeft_toRightOf="@+id/button5"
             app:layout_constraintRight_toLeftOf="@id/buttonMultiply"
@@ -139,8 +139,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:text="@string/fiveText"
             style="@style/ButtonStyle"
+            android:text="@string/fiveText"
             app:layout_constraintBottom_toTopOf="@id/button8"
             app:layout_constraintLeft_toRightOf="@+id/button4"
             app:layout_constraintRight_toLeftOf="@id/button6"
@@ -148,8 +148,8 @@
 
         <Button
             android:id="@+id/buttonDivide"
-            android:text="@string/divideText"
             style="@style/ButtonStyle"
+            android:text="@string/divideText"
             app:layout_constraintBottom_toTopOf="@id/buttonMultiply"
             app:layout_constraintLeft_toRightOf="@+id/button3"
             app:layout_constraintRight_toLeftOf="@id/buttonParenthesesOpen"
@@ -157,8 +157,8 @@
 
         <Button
             android:id="@+id/button3"
-            android:text="@string/threeText"
             style="@style/ButtonStyle"
+            android:text="@string/threeText"
             app:layout_constraintBottom_toTopOf="@id/button6"
             app:layout_constraintLeft_toRightOf="@+id/button2"
             app:layout_constraintRight_toLeftOf="@id/buttonDivide"
@@ -166,8 +166,8 @@
 
         <Button
             android:id="@+id/button2"
-            android:text="@string/twoText"
             style="@style/ButtonStyle"
+            android:text="@string/twoText"
             app:layout_constraintBottom_toTopOf="@id/button5"
             app:layout_constraintLeft_toRightOf="@+id/button1"
             app:layout_constraintRight_toLeftOf="@id/button3"
@@ -175,8 +175,8 @@
 
         <Button
             android:id="@+id/button1"
-            android:text="@string/oneText"
             style="@style/ButtonStyle"
+            android:text="@string/oneText"
 
             app:layout_constraintBottom_toTopOf="@id/button4"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -185,8 +185,8 @@
 
         <Button
             android:id="@+id/button4"
-            android:text="@string/fourText"
             style="@style/ButtonStyle"
+            android:text="@string/fourText"
             app:layout_constraintBottom_toTopOf="@id/button7"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/button5"
@@ -194,8 +194,8 @@
 
         <Button
             android:id="@+id/buttonDecimal"
-            android:text="@string/decimalText"
             style="@style/ButtonStyle"
+            android:text="@string/decimalText"
             app:layout_constraintBottom_toTopOf="@id/buttonClear"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/button0"
@@ -203,8 +203,8 @@
 
         <Button
             android:id="@+id/buttonClear"
-            android:text="@string/clearText"
             style="@style/ButtonStyle"
+            android:text="@string/clearText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/buttonBackspace"
@@ -212,8 +212,8 @@
 
         <Button
             android:id="@+id/button7"
-            android:text="@string/sevenText"
             style="@style/ButtonStyle"
+            android:text="@string/sevenText"
             app:layout_constraintBottom_toTopOf="@id/buttonDecimal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/button8"
@@ -221,48 +221,48 @@
 
         <Button
             android:id="@+id/buttonParenthesesOpen"
-            android:text="@string/parenthesesOpenText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/buttonSin"
+            android:text="@string/parenthesesOpenText"
             app:layout_constraintBottom_toTopOf="@id/buttonParenthesesClose"
-            app:layout_constraintLeft_toRightOf="@id/buttonDivide" />
+            app:layout_constraintLeft_toRightOf="@id/buttonDivide"
+            app:layout_constraintRight_toLeftOf="@id/buttonSin"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonParenthesesClose"
-            android:text="@string/parenthesesCloseText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesOpen"
-            app:layout_constraintRight_toLeftOf="@id/buttonCos"
+            android:text="@string/parenthesesCloseText"
             app:layout_constraintBottom_toTopOf="@id/buttonPower"
-            app:layout_constraintLeft_toRightOf="@id/buttonMultiply" />
+            app:layout_constraintLeft_toRightOf="@id/buttonMultiply"
+            app:layout_constraintRight_toLeftOf="@id/buttonCos"
+            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesOpen" />
 
         <Button
             android:id="@+id/buttonPower"
-            android:text="@string/powerText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesClose"
-            app:layout_constraintRight_toLeftOf="@id/buttonTg"
+            android:text="@string/powerText"
             app:layout_constraintBottom_toTopOf="@id/buttonE"
-            app:layout_constraintLeft_toRightOf="@id/buttonSubtract" />
+            app:layout_constraintLeft_toRightOf="@id/buttonSubtract"
+            app:layout_constraintRight_toLeftOf="@id/buttonTg"
+            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesClose" />
 
         <Button
             android:id="@+id/buttonE"
-            android:text="@string/eText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonPower"
-            app:layout_constraintRight_toLeftOf="@id/buttonLn"
+            android:text="@string/eText"
             app:layout_constraintBottom_toTopOf="@id/buttonPi"
-            app:layout_constraintLeft_toRightOf="@id/buttonAdd" />
+            app:layout_constraintLeft_toRightOf="@id/buttonAdd"
+            app:layout_constraintRight_toLeftOf="@id/buttonLn"
+            app:layout_constraintTop_toBottomOf="@id/buttonPower" />
 
         <Button
             android:id="@+id/buttonPi"
-            android:text="@string/piText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonE"
-            app:layout_constraintRight_toLeftOf="@id/buttonSquareRoot"
+            android:text="@string/piText"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/buttonEquals" />
+            app:layout_constraintLeft_toRightOf="@id/buttonEquals"
+            app:layout_constraintRight_toLeftOf="@id/buttonSquareRoot"
+            app:layout_constraintTop_toBottomOf="@id/buttonE" />
 
         <Button
             android:id="@+id/buttonSin"
@@ -275,39 +275,39 @@
 
         <Button
             android:id="@+id/buttonCos"
-            android:text="@string/cosText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonSin"
-            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/cosText"
             app:layout_constraintBottom_toTopOf="@id/buttonTg"
-            app:layout_constraintLeft_toRightOf="@id/buttonParenthesesClose" />
+            app:layout_constraintLeft_toRightOf="@id/buttonParenthesesClose"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonSin" />
 
         <Button
             android:id="@+id/buttonTg"
-            android:text="@string/tgText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonCos"
-            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/tgText"
             app:layout_constraintBottom_toTopOf="@id/buttonLn"
-            app:layout_constraintLeft_toRightOf="@id/buttonPower" />
+            app:layout_constraintLeft_toRightOf="@id/buttonPower"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonCos" />
 
         <Button
             android:id="@+id/buttonLn"
-            android:text="@string/lnText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonTg"
-            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/lnText"
             app:layout_constraintBottom_toTopOf="@id/buttonSquareRoot"
-            app:layout_constraintLeft_toRightOf="@id/buttonE" />
+            app:layout_constraintLeft_toRightOf="@id/buttonE"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonTg" />
 
         <Button
             android:id="@+id/buttonSquareRoot"
-            android:text="@string/squareRootText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonLn"
-            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/squareRootText"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/buttonPi" />
+            app:layout_constraintLeft_toRightOf="@id/buttonPi"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonLn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

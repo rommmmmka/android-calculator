@@ -1,6 +1,7 @@
 package com.kravets.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import org.mariuszgromada.math.mxparser.Expression;
 
 public class MainActivity extends AppCompatActivity {
@@ -354,13 +356,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isRequiresParentheses(String s) {
-        if (s.equals("sin"))
+        if (s.equals(getResources().getString(R.string.sinText)))
             return true;
-        if (s.equals("cos"))
+        if (s.equals(getResources().getString(R.string.cosText)))
             return true;
-        if (s.equals("tg"))
+        if (s.equals(getResources().getString(R.string.tgText)))
             return true;
-        if (s.equals("ln"))
+        if (s.equals(getResources().getString(R.string.lnText)))
             return true;
         return false;
     }

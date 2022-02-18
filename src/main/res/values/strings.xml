@@ -26,7 +26,7 @@
     <string name="sinText">sin</string>
     <string name="cosText">cos</string>
     <string name="tgText">tg</string>
-    <string name="logText">log</string>
+    <string name="lnText">ln</string>
     <string name="squareRootText">√</string>
     <string name="piText">pi</string>
     <string name="eText">e</string>

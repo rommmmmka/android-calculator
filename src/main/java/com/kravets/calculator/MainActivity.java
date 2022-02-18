@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSin;
     private Button buttonCos;
     private Button buttonTg;
-    private Button buttonLog;
+    private Button buttonLn;
     private Button buttonSquareRoot;
 
     @Override
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSin = findViewById(R.id.buttonSin);
         buttonCos = findViewById(R.id.buttonCos);
         buttonTg = findViewById(R.id.buttonTg);
-        buttonLog = findViewById(R.id.buttonLog);
+        buttonLn = findViewById(R.id.buttonLn);
         buttonSquareRoot = findViewById(R.id.buttonSquareRoot);
 
         View.OnClickListener onClichBtn = new View.OnClickListener() {
@@ -168,8 +168,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.buttonTg:
                         addStr(getResources().getString(R.string.tgText));
                         break;
-                    case R.id.buttonLog:
-                        addStr(getResources().getString(R.string.logText));
+                    case R.id.buttonLn:
+                        addStr(getResources().getString(R.string.lnText));
                         break;
                     case R.id.buttonSquareRoot:
                         addStr(getResources().getString(R.string.squareRootText));
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSin.setOnClickListener(onClichBtn);
         buttonCos.setOnClickListener(onClichBtn);
         buttonTg.setOnClickListener(onClichBtn);
-        buttonLog.setOnClickListener(onClichBtn);
+        buttonLn.setOnClickListener(onClichBtn);
         buttonSquareRoot.setOnClickListener(onClichBtn);
     }
 
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         if (s.equals("tg"))
             return true;
-        if (s.equals("log"))
+        if (s.equals("ln"))
             return true;
         return false;
     }

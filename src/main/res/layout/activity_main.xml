@@ -221,7 +221,6 @@
 
         <Button
             android:id="@+id/buttonParenthesesOpen"
-            android:text="@string/parenthesesOpenText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toLeftOf="@id/buttonSin"
@@ -230,7 +229,6 @@
 
         <Button
             android:id="@+id/buttonParenthesesClose"
-            android:text="@string/parenthesesCloseText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonParenthesesOpen"
             app:layout_constraintRight_toLeftOf="@id/buttonCos"
@@ -239,7 +237,6 @@
 
         <Button
             android:id="@+id/buttonPower"
-            android:text="@string/powerText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonParenthesesClose"
             app:layout_constraintRight_toLeftOf="@id/buttonTg"
@@ -248,16 +245,14 @@
 
         <Button
             android:id="@+id/buttonE"
-            android:text="@string/eText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonPower"
-            app:layout_constraintRight_toLeftOf="@id/buttonLog"
+            app:layout_constraintRight_toLeftOf="@id/buttonLn"
             app:layout_constraintBottom_toTopOf="@id/buttonPi"
             app:layout_constraintLeft_toRightOf="@id/buttonAdd" />
 
         <Button
             android:id="@+id/buttonPi"
-            android:text="@string/piText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonE"
             app:layout_constraintRight_toLeftOf="@id/buttonSquareRoot"
@@ -266,7 +261,6 @@
 
         <Button
             android:id="@+id/buttonSin"
-            android:text="@string/sinText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintBottom_toTopOf="@id/buttonCos"
             app:layout_constraintLeft_toRightOf="@id/buttonParenthesesOpen"
@@ -275,7 +269,6 @@
 
         <Button
             android:id="@+id/buttonCos"
-            android:text="@string/cosText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonSin"
             app:layout_constraintRight_toRightOf="parent"
@@ -284,16 +277,14 @@
 
         <Button
             android:id="@+id/buttonTg"
-            android:text="@string/tgText"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonCos"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/buttonLog"
+            app:layout_constraintBottom_toTopOf="@id/buttonLn"
             app:layout_constraintLeft_toRightOf="@id/buttonPower" />
 
         <Button
-            android:id="@+id/buttonLog"
-            android:text="@string/logText"
+            android:id="@+id/buttonLn"
             style="@style/InvisibleButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonTg"
             app:layout_constraintRight_toRightOf="parent"
@@ -302,9 +293,8 @@
 
         <Button
             android:id="@+id/buttonSquareRoot"
-            android:text="@string/squareRootText"
             style="@style/InvisibleButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonLog"
+            app:layout_constraintTop_toBottomOf="@id/buttonLn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/buttonPi" />

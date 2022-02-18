@@ -251,7 +251,7 @@
             android:text="@string/eText"
             style="@style/ButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonPower"
-            app:layout_constraintRight_toLeftOf="@id/buttonLog"
+            app:layout_constraintRight_toLeftOf="@id/buttonLn"
             app:layout_constraintBottom_toTopOf="@id/buttonPi"
             app:layout_constraintLeft_toRightOf="@id/buttonAdd" />
 
@@ -288,12 +288,12 @@
             style="@style/ButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonCos"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/buttonLog"
+            app:layout_constraintBottom_toTopOf="@id/buttonLn"
             app:layout_constraintLeft_toRightOf="@id/buttonPower" />
 
         <Button
-            android:id="@+id/buttonLog"
-            android:text="@string/logText"
+            android:id="@+id/buttonLn"
+            android:text="@string/lnText"
             style="@style/ButtonStyle"
             app:layout_constraintTop_toBottomOf="@id/buttonTg"
             app:layout_constraintRight_toRightOf="parent"
@@ -304,7 +304,7 @@
             android:id="@+id/buttonSquareRoot"
             android:text="@string/squareRootText"
             style="@style/ButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonLog"
+            app:layout_constraintTop_toBottomOf="@id/buttonLn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/buttonPi" />

@@ -53,7 +53,7 @@
             style="@style/EqualsButtonStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/buttonBackspace"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonPi"
             app:layout_constraintTop_toBottomOf="@+id/buttonPercent" />
 
         <Button
@@ -71,7 +71,7 @@
             style="@style/ButtonStyle"
             app:layout_constraintBottom_toTopOf="@id/buttonEquals"
             app:layout_constraintLeft_toRightOf="@+id/buttonPercent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonE"
             app:layout_constraintTop_toBottomOf="@+id/buttonSubtract" />
 
         <Button
@@ -98,7 +98,7 @@
             style="@style/ButtonStyle"
             app:layout_constraintBottom_toTopOf="@id/buttonAdd"
             app:layout_constraintLeft_toRightOf="@+id/button9"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonPower"
             app:layout_constraintTop_toBottomOf="@+id/buttonMultiply" />
 
         <Button
@@ -125,7 +125,7 @@
             style="@style/ButtonStyle"
             app:layout_constraintBottom_toTopOf="@id/buttonSubtract"
             app:layout_constraintLeft_toRightOf="@+id/button6"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonParenthesesClose"
             app:layout_constraintTop_toBottomOf="@+id/buttonDivide" />
 
         <Button
@@ -152,7 +152,7 @@
             style="@style/ButtonStyle"
             app:layout_constraintBottom_toTopOf="@id/buttonMultiply"
             app:layout_constraintLeft_toRightOf="@+id/button3"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonParenthesesOpen"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -218,6 +218,96 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/button8"
             app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/buttonParenthesesOpen"
+            android:text="@string/parenthesesOpenText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/buttonSin"
+            app:layout_constraintBottom_toTopOf="@id/buttonParenthesesClose"
+            app:layout_constraintLeft_toRightOf="@id/buttonDivide" />
+
+        <Button
+            android:id="@+id/buttonParenthesesClose"
+            android:text="@string/parenthesesCloseText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesOpen"
+            app:layout_constraintRight_toLeftOf="@id/buttonCos"
+            app:layout_constraintBottom_toTopOf="@id/buttonPower"
+            app:layout_constraintLeft_toRightOf="@id/buttonMultiply" />
+
+        <Button
+            android:id="@+id/buttonPower"
+            android:text="@string/powerText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonParenthesesClose"
+            app:layout_constraintRight_toLeftOf="@id/buttonTg"
+            app:layout_constraintBottom_toTopOf="@id/buttonE"
+            app:layout_constraintLeft_toRightOf="@id/buttonSubtract" />
+
+        <Button
+            android:id="@+id/buttonE"
+            android:text="@string/eText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonPower"
+            app:layout_constraintRight_toLeftOf="@id/buttonLog"
+            app:layout_constraintBottom_toTopOf="@id/buttonPi"
+            app:layout_constraintLeft_toRightOf="@id/buttonAdd" />
+
+        <Button
+            android:id="@+id/buttonPi"
+            android:text="@string/piText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonE"
+            app:layout_constraintRight_toLeftOf="@id/buttonSquareRoot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/buttonEquals" />
+
+        <Button
+            android:id="@+id/buttonSin"
+            android:text="@string/sinText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintBottom_toTopOf="@id/buttonCos"
+            app:layout_constraintLeft_toRightOf="@id/buttonParenthesesOpen"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonCos"
+            android:text="@string/cosText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonSin"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/buttonTg"
+            app:layout_constraintLeft_toRightOf="@id/buttonParenthesesClose" />
+
+        <Button
+            android:id="@+id/buttonTg"
+            android:text="@string/tgText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonCos"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/buttonLog"
+            app:layout_constraintLeft_toRightOf="@id/buttonPower" />
+
+        <Button
+            android:id="@+id/buttonLog"
+            android:text="@string/logText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonTg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/buttonSquareRoot"
+            app:layout_constraintLeft_toRightOf="@id/buttonE" />
+
+        <Button
+            android:id="@+id/buttonSquareRoot"
+            android:text="@string/squareRootText"
+            style="@style/InvisibleButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/buttonLog"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/buttonPi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

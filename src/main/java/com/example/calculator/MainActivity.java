@@ -213,16 +213,16 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(onClichBtn);
         buttonBackspace.setOnClickListener(onClichBtn);
         buttonEquals.setOnClickListener(onClichBtn);
-//        buttonParenthesesOpen.setOnClickListener(onClichBtn);
-//        buttonParenthesesClose.setOnClickListener(onClichBtn);
-//        buttonPower.setOnClickListener(onClichBtn);
-//        buttonE.setOnClickListener(onClichBtn);
-//        buttonPi.setOnClickListener(onClichBtn);
-//        buttonSin.setOnClickListener(onClichBtn);
-//        buttonCos.setOnClickListener(onClichBtn);
-//        buttonTg.setOnClickListener(onClichBtn);
-//        buttonLog.setOnClickListener(onClichBtn);
-//        buttonSquareRoot.setOnClickListener(onClichBtn);
+        buttonParenthesesOpen.setOnClickListener(onClichBtn);
+        buttonParenthesesClose.setOnClickListener(onClichBtn);
+        buttonPower.setOnClickListener(onClichBtn);
+        buttonE.setOnClickListener(onClichBtn);
+        buttonPi.setOnClickListener(onClichBtn);
+        buttonSin.setOnClickListener(onClichBtn);
+        buttonCos.setOnClickListener(onClichBtn);
+        buttonTg.setOnClickListener(onClichBtn);
+        buttonLog.setOnClickListener(onClichBtn);
+        buttonSquareRoot.setOnClickListener(onClichBtn);
     }
 
     protected void addStr(String s) {
@@ -236,6 +236,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if (isRequiresParentheses(s))
             s = new StringBuilder(s).append('(').toString();
+        if (s.equals(getResources().getString(R.string.squareRootText)))
+            s = "sqrt(";
         expression.insert(cursorPos, s);
         editText.setText(expression);
         editText.setSelection(cursorPos + s.length());
@@ -292,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
         expression = expression.replaceAll(getResources().getString(R.string.divideText), "/");
         expression = expression.replaceAll(getResources().getString(R.string.multiplyText), "*");
         StringBuilder expressionB = new StringBuilder(expression);
-        while (expressionB.length() != 0 && !(Character.isDigit(expressionB.charAt(expressionB.length() - 1)))) {
+        while (expressionB.length() != 0 && isSymbol(expressionB.charAt(expressionB.length() - 1))) {
             expressionB.deleteCharAt(expressionB.length() - 1);
         }
         int bracketsCount = 0;
@@ -324,11 +326,17 @@ public class MainActivity extends AppCompatActivity {
     private boolean isSymbol(char c) {
         if (c == getResources().getString(R.string.divideText).charAt(0))
             return true;
+        if (c == '/')
+            return true;
         if (c == getResources().getString(R.string.multiplyText).charAt(0))
+            return true;
+        if (c == '*')
             return true;
         if (c == getResources().getString(R.string.subtractText).charAt(0))
             return true;
         if (c == getResources().getString(R.string.addText).charAt(0))
+            return true;
+        if (c == getResources().getString(R.string.powerText).charAt(0))
             return true;
         return false;
     }

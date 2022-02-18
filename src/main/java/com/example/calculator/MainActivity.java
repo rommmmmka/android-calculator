@@ -1,14 +1,14 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import org.mariuszgromada.math.mxparser.*;
+import org.mariuszgromada.math.mxparser.Expression;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
@@ -32,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonClear;
     private Button buttonBackspace;
     private Button buttonEquals;
+    private Button buttonParenthesesOpen;
+    private Button buttonParenthesesClose;
+    private Button buttonPower;
+    private Button buttonE;
+    private Button buttonPi;
+    private Button buttonSin;
+    private Button buttonCos;
+    private Button buttonTg;
+    private Button buttonLog;
+    private Button buttonSquareRoot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
         buttonClear = findViewById(R.id.buttonClear);
         buttonBackspace = findViewById(R.id.buttonBackspace);
         buttonEquals = findViewById(R.id.buttonEquals);
+        buttonParenthesesOpen = findViewById(R.id.buttonParenthesesOpen);
+        buttonParenthesesClose = findViewById(R.id.buttonParenthesesClose);
+        buttonPower = findViewById(R.id.buttonPower);
+        buttonE = findViewById(R.id.buttonE);
+        buttonPi = findViewById(R.id.buttonPi);
+        buttonSin = findViewById(R.id.buttonSin);
+        buttonCos = findViewById(R.id.buttonCos);
+        buttonTg = findViewById(R.id.buttonTg);
+        buttonLog = findViewById(R.id.buttonLog);
+        buttonSquareRoot = findViewById(R.id.buttonSquareRoot);
 
         View.OnClickListener onClichBtn = new View.OnClickListener() {
 
@@ -124,9 +144,55 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.buttonEquals:
                         btnEquals();
                         break;
+                    case R.id.buttonParenthesesOpen:
+                        addStr(getResources().getString(R.string.parenthesesOpenText));
+                        break;
+                    case R.id.buttonParenthesesClose:
+                        addStr(getResources().getString(R.string.parenthesesCloseText));
+                        break;
+                    case R.id.buttonPower:
+                        addStr(getResources().getString(R.string.powerText));
+                        break;
+                    case R.id.buttonE:
+                        addStr(getResources().getString(R.string.eText));
+                        break;
+                    case R.id.buttonPi:
+                        addStr(getResources().getString(R.string.piText));
+                        break;
+                    case R.id.buttonSin:
+                        addStr(getResources().getString(R.string.sinText));
+                        break;
+                    case R.id.buttonCos:
+                        addStr(getResources().getString(R.string.cosText));
+                        break;
+                    case R.id.buttonTg:
+                        addStr(getResources().getString(R.string.tgText));
+                        break;
+                    case R.id.buttonLog:
+                        addStr(getResources().getString(R.string.logText));
+                        break;
+                    case R.id.buttonSquareRoot:
+                        addStr(getResources().getString(R.string.squareRootText));
+                        break;
                 }
             }
         };
+
+        editText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                getResult();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+        });
 
         button1.setOnClickListener(onClichBtn);
         button2.setOnClickListener(onClichBtn);
@@ -147,23 +213,32 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(onClichBtn);
         buttonBackspace.setOnClickListener(onClichBtn);
         buttonEquals.setOnClickListener(onClichBtn);
+//        buttonParenthesesOpen.setOnClickListener(onClichBtn);
+//        buttonParenthesesClose.setOnClickListener(onClichBtn);
+//        buttonPower.setOnClickListener(onClichBtn);
+//        buttonE.setOnClickListener(onClichBtn);
+//        buttonPi.setOnClickListener(onClichBtn);
+//        buttonSin.setOnClickListener(onClichBtn);
+//        buttonCos.setOnClickListener(onClichBtn);
+//        buttonTg.setOnClickListener(onClichBtn);
+//        buttonLog.setOnClickListener(onClichBtn);
+//        buttonSquareRoot.setOnClickListener(onClichBtn);
     }
 
     protected void addStr(String s) {
         StringBuilder expression = new StringBuilder(editText.getText());
         int cursorPos = editText.getSelectionStart();
-        boolean changeSymbol = false;
         if (cursorPos != 0 && isSymbol(s.charAt(0)) && isSymbol(expression.charAt(cursorPos - 1))) {
             expression.replace(cursorPos - 1, cursorPos, s);
-            changeSymbol = true;
-        } else
-            expression.insert(cursorPos, s);
-        editText.setText(expression);
-        if (changeSymbol)
+            editText.setText(expression);
             editText.setSelection(cursorPos);
-        else
-            editText.setSelection(cursorPos + s.length());
-        getResult();
+            return;
+        }
+        if (isRequiresParentheses(s))
+            s = new StringBuilder(s).append('(').toString();
+        expression.insert(cursorPos, s);
+        editText.setText(expression);
+        editText.setSelection(cursorPos + s.length());
     }
 
     protected void btnDecimal() {
@@ -188,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
         expression.insert(cursorPos, s);
         editText.setText(expression);
         editText.setSelection(cursorPos + s.length());
-        getResult();
     }
 
     protected void btnPercent() {
@@ -196,12 +270,11 @@ public class MainActivity extends AppCompatActivity {
         expression.insert(0, "(");
         expression.append(")/100");
         editText.setText(expression);
-        getResult();
+        editText.setSelection(expression.length());
     }
 
     private void btnClear() {
         editText.setText("");
-        getResult();
     }
 
     private void btnBackspace() {
@@ -212,30 +285,31 @@ public class MainActivity extends AppCompatActivity {
         expression.deleteCharAt(cursorPos - 1);
         editText.setText(expression);
         editText.setSelection(cursorPos - 1);
-        getResult();
     }
 
     private void getResult() {
         String expression = String.valueOf(editText.getText());
         expression = expression.replaceAll(getResources().getString(R.string.divideText), "/");
         expression = expression.replaceAll(getResources().getString(R.string.multiplyText), "*");
-        int bracketsCount = 0;
-        for (int i = 0; i < expression.length(); i++) {
-            if (expression.charAt(i) == '(')
-                bracketsCount++;
-            if (expression.charAt(i) == ')')
-                bracketsCount--;
-        }
         StringBuilder expressionB = new StringBuilder(expression);
         while (expressionB.length() != 0 && !(Character.isDigit(expressionB.charAt(expressionB.length() - 1)))) {
             expressionB.deleteCharAt(expressionB.length() - 1);
         }
+        int bracketsCount = 0;
+        for (int i = 0; i < expressionB.length(); i++) {
+            if (expressionB.charAt(i) == '(')
+                bracketsCount++;
+            if (expressionB.charAt(i) == ')')
+                bracketsCount--;
+        }
+        for (; bracketsCount > 0; bracketsCount--)
+            expressionB.append(')');
         if (expressionB.length() == 0)
             expressionB = new StringBuilder("0");
         Expression exp = new Expression(String.valueOf(expressionB));
         StringBuilder result = new StringBuilder(String.valueOf(exp.calculate()));
         result.insert(0, "=");
-        if (result.length() >= 2 && result.charAt(result.length() - 2) == '.' && result.charAt(result.length() - 1) == '0')
+        if (result.charAt(result.length() - 2) == '.' && result.charAt(result.length() - 1) == '0')
             result.delete(result.length() - 2, result.length());
         textView.setText(result);
     }
@@ -259,4 +333,15 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    private boolean isRequiresParentheses(String s) {
+        if (s.equals("sin"))
+            return true;
+        if (s.equals("cos"))
+            return true;
+        if (s.equals("tg"))
+            return true;
+        if (s.equals("log"))
+            return true;
+        return false;
+    }
 }

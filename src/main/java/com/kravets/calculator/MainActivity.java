@@ -242,11 +242,12 @@ public class MainActivity extends AppCompatActivity {
             boolean isZeroAllowed = false;
             if (cursorPos == 0 || expression.charAt(cursorPos - 1) != '0')
                 isZeroAllowed = true;
-            for (int i = cursorPos - 1; i > 0 && !isZeroAllowed; i--) {
+            for (int i = cursorPos - 1; i >= 0 && !isZeroAllowed; i--) {
                 if (expression.charAt(i) == '0')
                     continue;
                 if (expression.charAt(i) == '.' || Character.isDigit(expression.charAt(i)))
                     isZeroAllowed = true;
+                break;
             }
             if (!isZeroAllowed)
                 return;

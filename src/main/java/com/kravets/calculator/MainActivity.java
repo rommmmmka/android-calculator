@@ -237,13 +237,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         if (isRequiresParentheses(s))
-            s = new StringBuilder(s).append('(').toString();
+            s = s + '(';
         if (s.equals(getResources().getString(R.string.squareRootText)))
             s = "sqrt(";
         if (Character.isDigit(s.charAt(0)) && cursorPos != 0) {
-            boolean delZero = false;
-            if (cursorPos == 1 && expression.charAt(0) == '0')
-                delZero = true;
+            boolean delZero = (cursorPos == 1 && expression.charAt(0) == '0');
             if (!delZero && expression.charAt(cursorPos - 1) == '0' &&
                     !(Character.isDigit(expression.charAt(cursorPos - 2)) || expression.charAt(cursorPos - 2) == '.'))
                 delZero = true;
@@ -327,11 +325,16 @@ public class MainActivity extends AppCompatActivity {
         result.insert(0, "=");
         if (result.charAt(result.length() - 2) == '.' && result.charAt(result.length() - 1) == '0')
             result.delete(result.length() - 2, result.length());
-        textView.setText(result);
+        if (result.toString().equals("=NaN"))
+            textView.setText("=Ошибка");
+        else
+            textView.setText(result);
     }
 
     private void btnEquals() {
         StringBuilder result = new StringBuilder(String.valueOf(textView.getText()));
+        if (result.toString().equals("=Ошибка"))
+            return;
         result.deleteCharAt(0);
         editText.setText(result);
         editText.setSelection(result.length());
